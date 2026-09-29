@@ -175,7 +175,7 @@ def ler_cartao(cartao):
         "desconto": desconto,
         "nota": nota,
         "vendidos": vendidos,
-        "full": "icon_full" in json.dumps(comps.get("shipping_v2", {})),
+        "full": bool(re.search(r"icon_full|full_icon", json.dumps(comps.get("shipping_v2", {})))),
         "selos": selos,
         "url": url if url.startswith("http") else "https://" + url,
     }
