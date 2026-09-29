@@ -14,7 +14,7 @@ qualquer compra feita a partir da lista paga a taxa cheia):
 | [Bicicleta de equilíbrio aro 12](https://www.mercadolivre.com.br/bicicleta-equilibrio-infantil-aro-12-balance-pitukinha-colli/up/MLBU3833055048) | R$ 309,99 (R$ 599,90) | 4,9 · +1 mil | sim | Brinquedos 12% | R$ 33,48 |
 | [Bicicleta infantil aro 16](https://produto.mercadolivre.com.br/MLB-4118867567-bicicleta-infantil-aro-16-masculina-ate-7-anos-super-herois-_JM) | R$ 495,89 (R$ 669,99) | 4,9 · +1 mil | sim | Brinquedos 12% | R$ 53,56 |
 | [Cama elástica 1,8 m Justfun](https://www.mercadolivre.com.br/cama-elastica-infantil-justfun-18-m-colorida-com-rede-de-protecao-para-100-kg/p/MLB19728496) | R$ 516,91 (R$ 589,90) | 4,7 · +10 mil | sim | Brinquedos 12% | R$ 55,83 |
-| [Hoverboard 6,5" LED e Bluetooth](https://www.mercadolivre.com.br/hoverboard-skate-eletrico-65-polegadas-com-led-e-bluetooth/p/MLB65362213) | R$ 599,00 (R$ 1.299,00) | 4,8 · +1 mil | não | Esportes 16% | R$ 86,26 |
+| [Hoverboard 6,5" LED e Bluetooth](https://www.mercadolivre.com.br/hoverboard-skate-eletrico-65-polegadas-com-led-e-bluetooth/p/MLB65362213) | R$ 599,00 (R$ 1.299,00) | 4,8 · +1 mil | sim | Esportes 16% | R$ 86,26 |
 | [Nintendo Switch Lite 32 GB](https://www.mercadolivre.com.br/console-nintendo-switch-lite-32gb-azul-turquesa-standard-tela-55-cor-azul-turquesa/p/MLB40199765) | R$ 1.405,00 (R$ 2.299,00) | 4,9 · +1 mil | sim | Games 12% | R$ 151,74 |
 
 **Conjunto B — produto único: Hoverboard** (a maior comissão por venda dentro da faixa
@@ -68,11 +68,13 @@ não, vira aprendizado barato.
 
 | Anúncio | Conjunto | Formato | Etiqueta ML |
 |---|---|---|---|
-| A1 | lista | carrossel de 5–6 cards (um por produto, com preço) | `dc26-lista-carrossel` |
-| A2 | lista | imagem "vitrine" com 4 produtos | `dc26-lista-vitrine` |
-| A3 | lista | vídeo vertical 9:16 (sequência de fotos com preço) | `dc26-lista-video` |
-| B1 | hover | imagem do hoverboard com LED aceso | `dc26-hover-img` |
-| B2 | hover | vídeo vertical 9:16 | `dc26-hover-video` |
+| A1 | lista | carrossel de 5–6 cards (um por produto, com preço) | `dc26listacarrossel` |
+| A2 | lista | imagem "vitrine" com 4 produtos | `dc26listavitrine` |
+| A3 | lista | vídeo vertical 9:16 (sequência de fotos com preço) | `dc26listavideo` |
+| B1 | hover | imagem do hoverboard com LED aceso | `dc26hoverimg` |
+| B2 | hover | vídeo vertical 9:16 | `dc26hovervideo` |
+
+Etiquetas: só minúsculas e números, sem hífen (regra do ML); criar pelo computador.
 
 ## 5. Verba, prazo e regras
 - **Teste**: R$ 40/dia × 9 dias = R$ 360 + impostos ≈ **R$ 409,79**. Esse é o teto de
@@ -102,17 +104,24 @@ Títulos: "Presentes até 54% OFF" · "Os mais pedidos de 2026" · "Hoverboard p
 Botão: Comprar agora.
 
 ## 7. Pendências para publicar
-1. **Conta de anúncios**. O conector trouxe só a conta pessoal 519080292851455 ("Lucas
-   Silva"): ativa e com pagamento, mas sem Página do Facebook e sem Instagram, e sem eles
-   não há anúncio. A conta do link (397596712925418, portfólio 1438919838272739) não veio.
-2. **Identidade**: a Página/Instagram que vai anunciar precisa ser a declarada no
+Preços e Full rechecados em 2026-09-29 à tarde: sem mudança; os 6 itens têm Full.
+
+1. **Conta de anúncios**. Na primeira conexão veio só a conta pessoal 519080292851455
+   ("Lucas Silva"): ativa e com pagamento, mas sem Página do Facebook e sem Instagram, e
+   sem eles não há anúncio. A conta do link (397596712925418, portfólio 1438919838272739)
+   não veio. O usuário refez a conexão; conferir numa sessão nova, porque o conector só
+   carrega quando a sessão começa.
+2. **Comissão real por item**: a Central de Afiliados
+   (mercadolivre.com.br/afiliados/hub) só abre com o login do usuário. Confirmar ali a
+   comissão e os Ganhos Extras dos 6 itens.
+3. **Identidade**: a Página/Instagram que vai anunciar precisa ser a declarada no
    programa de afiliados.
-3. **Links**: criar a lista na Central de Afiliados e gerar 5 links (lista × 3 etiquetas,
+4. **Links**: criar a lista na Central de Afiliados e gerar 5 links (lista × 3 etiquetas,
    hoverboard × 2) no gerador oficial.
-4. **Imagens**: confirmar com o suporte do ML se podemos usar as fotos dos anúncios nos
+5. **Imagens**: confirmar com o suporte do ML se podemos usar as fotos dos anúncios nos
    criativos. Se não, usar fotos próprias.
-5. **Consulta ao suporte** sobre mídia paga (texto em docs/04 §4).
-6. **Aprovação** do valor, período e anúncios (seção 8).
+6. **Consulta ao suporte** sobre mídia paga (texto em docs/04 §4).
+7. **Aprovação** do valor, período e anúncios (seção 8).
 
 ## 8. Aprovação
 - [ ] Usuário aprovou R$ 40/dia (A R$ 25 + B R$ 15), de 2026-10-02 a 2026-10-10, total com

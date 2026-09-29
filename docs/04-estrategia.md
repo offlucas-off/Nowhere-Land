@@ -40,8 +40,9 @@ chegada 75%, cancelamento 10%, imposto Meta 13,83%.
 - Meta: portfólio empresarial, conta de anúncios, verificação de identidade, forma de
   pagamento e **limite de gastos da conta** configurado.
 - Conectar o conector oficial da Meta (ou escolher o caminho pelo navegador).
-- Padrão de etiqueta (≤ 30 caracteres): `<campanha>-<conjunto>-<criativo>`, ex.
-  `dc26-lista-v1`.
+- Padrão de etiqueta: `<campanha><conjunto><criativo>`, ex. `dc26listav1` — até 30
+  caracteres, só letras minúsculas e números (o ML não aceita espaço, hífen, maiúscula
+  nem acento); criada só pelo computador e não pode ser apagada.
 
 ### Fase 1 — Sprint Dia das Crianças (≈ 2026-10-01 a 2026-10-10)
 - Radar em Brinquedos, Bebês e Games; preços de R$ 150–800; 3 finalistas + 1 lista

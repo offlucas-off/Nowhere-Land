@@ -46,7 +46,8 @@ criativo já validado ou data comemorativa.
 
 ## 4. Montagem
 1. Gerar um link por criativo no gerador oficial, cada um com sua etiqueta
-   (`<campanha>-<conjunto>-<criativo>`, ≤ 30 caracteres).
+   (`<campanha><conjunto><criativo>`, ex. `dc26listav1`: até 30 caracteres, só minúsculas
+   e números, sem hífen; etiqueta criada não pode ser apagada).
 2. Estrutura padrão (docs/03): Tráfego → visualização da página de destino; ABO; 1–2
    conjuntos; 3–5 criativos; Brasil 18+; Advantage+ sem Audience Network.
 3. Checklist: sem marca/logo do ML; #publi; preço real; conteúdo próprio; categoria

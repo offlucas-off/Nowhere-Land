@@ -41,8 +41,9 @@ Levantamento de 2026-09-29. Tipos de fonte: **[OF]** oficial (Meta, ML, governo)
 - Configurar **limite de gastos da conta** como trava de segurança antes de ativar.
 
 ## Rastreio e otimização
-- **Etiqueta por anúncio** (até 30 caracteres) no gerador de links; painel atualiza a cada
-  ~3 h; ganho confirmado só após a validação.
+- **Etiqueta por anúncio** no gerador de links (até 30 caracteres, só minúsculas e
+  números, criada pelo computador); painel atualiza a cada ~3 h; ganho confirmado só após
+  a validação.
 - **Tráfego direto ao ML**: otimizar por **visualização da página de destino** (funciona
   sem Pixel desde ago–set/2025, medição modelada) e **excluir a Audience Network**. Num
   teste público, otimizar por clique mandou 99% dos cliques para a Audience Network [PR].
