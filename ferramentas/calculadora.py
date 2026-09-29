@@ -50,7 +50,7 @@ def sinal(valor):
 
 def comissao_por_venda(args):
     """Comissão líquida esperada por pedido atribuído."""
-    bruta = args.preco * pct(args.comissao + args.extra)
+    bruta = args.preco * pct(args.base) * pct(args.comissao + args.extra)
     if args.teto is not None:
         bruta = min(bruta, args.teto)
     bruta *= 1 + pct(args.bonus_carrinho)
@@ -168,6 +168,9 @@ def main():
         p.add_argument("--preco", type=float, required=True, help="preço do produto (R$)")
         p.add_argument("--comissao", type=float, required=True, help="comissão da categoria (%%)")
         p.add_argument("--extra", type=float, default=0.0, help="comissão extra / ganhos extras (%%)")
+        p.add_argument("--base", type=float, default=100.0,
+                       help="parte do preço sobre a qual a comissão incide (%%); os Termos falam em "
+                            "vendas líquidas de tarifas e taxas, calibrar com as primeiras vendas")
         p.add_argument("--teto", type=float, help="teto de comissão por item, se houver (R$)")
         p.add_argument("--bonus-carrinho", type=float, default=0.0,
                        help="acréscimo esperado por outros itens comprados na mesma visita (%% da comissão)")
