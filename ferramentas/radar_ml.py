@@ -27,7 +27,8 @@ import urllib.parse
 import urllib.request
 from datetime import datetime
 
-from calculadora import CANCELAMENTO_PCT, CHEGADA_PCT, CONVERSAO_PCT, IMPOSTO_META_PCT, brl, num
+from calculadora import (CANCELAMENTO_PCT, CHEGADA_PCT, CONVERSAO_PCT, IMPOSTO_META_PCT, brl,
+                         fator_ticket, num)
 
 UA = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
       "(KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36")
@@ -80,14 +81,6 @@ BLOQUEIO = re.compile(
     r"gift ?card|cartao presente|recarga|razer gold|playstation store|ingresso|erotic|sex ?shop|"
     r"vibrador|lubrificante intimo|\b(cerveja|vinho|whisky|vodka|cachaca|gin|licor)\b|lente de contato"
 )
-
-# A compra precisa sair em até 24 h do clique: quanto mais caro, menor a conversão
-# esperada. Fatores heurísticos, a recalibrar com as métricas reais do painel.
-FAIXAS_TICKET = [(150, 1.0), (400, 0.75), (800, 0.5), (float("inf"), 0.35)]
-
-
-def fator_ticket(preco):
-    return next(fator for limite, fator in FAIXAS_TICKET if preco <= limite)
 
 
 class Bloqueado(Exception):

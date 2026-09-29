@@ -27,7 +27,15 @@ import argparse
 IMPOSTO_META_PCT = 13.83  # tributos somados à verba no Brasil (ver docs/03)
 CONVERSAO_PCT = 1.5  # clique que chega ao ML -> pedido, tráfego frio de rede social
 CHEGADA_PCT = 75.0  # clique no link -> página do ML carregada com atribuição
-CANCELAMENTO_PCT = 7.0  # pedidos cancelados/devolvidos (comissão estornada)
+CANCELAMENTO_PCT = 10.0  # pedidos cancelados/devolvidos (comissão estornada)
+
+# A compra precisa sair em até 24 h do clique: quanto mais caro, menor a conversão
+# esperada. Fatores heurísticos sobre CONVERSAO_PCT, a recalibrar com o painel.
+FAIXAS_TICKET = [(150, 1.0), (400, 0.75), (800, 0.5), (float("inf"), 0.35)]
+
+
+def fator_ticket(preco):
+    return next(fator for limite, fator in FAIXAS_TICKET if preco <= limite)
 
 
 def pct(valor):
@@ -68,13 +76,16 @@ def lucro_por_verba(verba, cpc, conversao_pct, chegada_pct, comissao_liq, impost
 def modo_direto(args):
     bruta, liquida = comissao_por_venda(args)
     fator_imposto = 1 + pct(args.imposto_meta)
-    ganho_clique_ml = liquida * pct(args.conversao)
+    conversao = args.conversao if args.conversao is not None else CONVERSAO_PCT * fator_ticket(args.preco)
+    ganho_clique_ml = liquida * pct(conversao)
     ganho_clique_anuncio = ganho_clique_ml * pct(args.chegada)
     cpc_max = ganho_clique_anuncio / fator_imposto
     cpa_max = liquida / fator_imposto
     roas_min = args.preco / liquida if liquida else float("inf")
 
     print("== Viabilidade: tráfego direto para a oferta ==")
+    origem = "informada" if args.conversao is not None else "padrão ajustada pelo preço"
+    print(f"Conversão clique -> pedido ...... {num(conversao, 2)}% ({origem})")
     print(f"Comissão bruta por venda ........ {brl(bruta)}")
     print(f"Comissão líquida (após cancel.) . {brl(liquida)}")
     print(f"Ganho por clique que chega ao ML  {brl(ganho_clique_ml)}")
@@ -95,7 +106,7 @@ def modo_direto(args):
             print(f"  folga até o prejuízo .......... {folga:.0f}% de aumento no CPC")
         if args.verba:
             cliques, vendas, receita, custo, lucro = lucro_por_verba(
-                args.verba, args.cpc, args.conversao, args.chegada, liquida, args.imposto_meta
+                args.verba, args.cpc, conversao, args.chegada, liquida, args.imposto_meta
             )
             print()
             print(f"Projeção para verba de {brl(args.verba)} (+ impostos):")
@@ -180,7 +191,8 @@ def main():
 
     direto = sub.add_parser("direto", help="tráfego direto para a oferta")
     comuns_oferta(direto)
-    direto.add_argument("--conversao", type=float, default=CONVERSAO_PCT, help="clique -> pedido (%%)")
+    direto.add_argument("--conversao", type=float,
+                        help="clique -> pedido (%%); padrão: 1,5%% reduzida conforme o preço")
     direto.add_argument("--cpc", type=float, help="CPC observado ou esperado no Gerenciador (R$)")
     direto.add_argument("--verba", type=float, help="verba do teste, sem impostos (R$)")
     direto.set_defaults(func=modo_direto)
